@@ -11,13 +11,15 @@ class Chats extends StatefulWidget {
 }
 
 class _ChatsState extends State<Chats> {
+  TextEditingController msg = TextEditingController();
   @override
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height;
     double width = MediaQuery.of(context).size.width;
     return Scaffold(
         backgroundColor: Colors.transparent,
-        // bottomSheet:
+        resizeToAvoidBottomInset: true,
+         
         appBar: AppBar(
           backgroundColor: Color(0xff6925ad),
           elevation: 0,
@@ -76,10 +78,13 @@ class _ChatsState extends State<Chats> {
             ),
             height: MediaQuery.of(context).size.height,
           ),
-
           SingleChildScrollView(
+            reverse: true,
             padding: EdgeInsets.only(
-                top: height * 0.03, left: width * 0.04, right: width * 0.04),
+                top: height * 0.03,
+                left: width * 0.02,
+                right: width * 0.02,
+                bottom: height *0.05),
             child: Column(
               mainAxisSize: MainAxisSize.min,
               crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -119,36 +124,79 @@ class _ChatsState extends State<Chats> {
                       ),
                     ),
                   ),
-                ])
+                ]),
+                SizedBox(
+                  height: height * 0.03,
+                ),
+                GroupReceipient(),
               ],
             ),
           ),
-
-
-
           Positioned(
-            bottom: 0,
-            child: Container(
-              color: Colors.transparent,
-              width: width * 0.8,
-              // margin: EdgeInsets.only(left: 10, right: 10, bottom: 5),
-              child: TextFormField(
-                decoration: InputDecoration(
-                    prefix: Icon(
-                      Icons.emoji_emotions_outlined,
-                      color: Colors.black54,
-                      size: 33,
+              bottom: 5,
+              left: 20,
+              child: Container(
+                width: width * 0.9,
+                decoration: BoxDecoration(
+                    border: Border.all(
+                      width: 3,
+                      color: Color(0xff6925ad),
                     ),
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(60),
-                      // borderSide: BorderSide(
-                      //   color: Color(0xff6925ad),
-                      //   width: 20,
-                      // )
-                    )),
-              ),
-            ),
-          )
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(50)),
+                child: TextFormField(
+                  // obscureText: obscure,
+                  maxLines: 5,
+                  minLines: 1,
+
+                  // keyboardType: keyboard,
+                  controller: msg,
+                  // textAlign: textAlign,
+                  // style: style,
+                  decoration: InputDecoration(
+                    hintText: "Type your message",
+                    // hintStyle: TextStyle(color: hintColor),
+                    suffixIcon: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Icon(Icons.attach_file_outlined),
+                        SizedBox(
+                          width: 5,
+                        ),
+                        Icon(Icons.camera_alt_outlined),
+                        SizedBox(
+                          width: 5,
+                        ),
+                        Container(
+                            decoration: BoxDecoration(
+                                shape: BoxShape.circle,
+                                color: Color(0xff6925ad)),
+                            padding: EdgeInsets.all(5),
+                            child: Icon(
+                              Icons.mic,
+                              color: Colors.white,
+                            )),
+                        SizedBox(
+                          width: 5,
+                        ),
+                      ],
+                    ),
+                    prefixIcon: Icon(Icons.emoji_emotions_outlined),
+                    border: InputBorder.none,
+                    focusedBorder: InputBorder.none,
+                    enabledBorder: InputBorder.none,
+                    errorBorder: InputBorder.none,
+                    disabledBorder: InputBorder.none,
+                     
+                    contentPadding:
+                        EdgeInsets.symmetric(horizontal: 15, vertical: 15.0),
+                  ),
+                 
+                ),
+              )
+            
+              )
         ]));
   }
 }

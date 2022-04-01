@@ -1,4 +1,4 @@
-// ignore_for_file: file_names, prefer_const_constructors
+// ignore_for_file: file_names, prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
 
@@ -126,6 +126,102 @@ class _SenderBubbleState extends State<SenderBubble> {
               Icon(Icons.done),
             ],
           )
+        ],
+      ),
+    );
+  }
+}
+
+class GroupReceipient extends StatefulWidget {
+  const GroupReceipient({Key? key}) : super(key: key);
+
+  @override
+  _GroupReceipientState createState() => _GroupReceipientState();
+}
+
+class _GroupReceipientState extends State<GroupReceipient> {
+  @override
+  Widget build(BuildContext context) {
+    double width = MediaQuery.of(context).size.width;
+
+    return Flexible(
+      // height: height * 0.1859 ,
+      // alignment: Alignment.topLeft,
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          CircleAvatar(
+            radius: 25,
+            backgroundColor: Color(0xffad6925),
+            child: Icon(
+              Icons.person,
+              color: Color(0xffffffff),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(top: 15.0, left: 5),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Container(
+                  // alignment: Alignment.topLeft,
+                  // height: height * 0.1,
+                  width: width * 0.75,
+
+                  padding: EdgeInsets.only(
+                    bottom: 15,
+                    left: 15,
+                    right: 15,
+                    top: 5,
+                  ),
+                  margin: EdgeInsets.only(bottom: 5),
+                  decoration: BoxDecoration(
+                    color: Colors.grey[400],
+                    border: Border.all(color: Colors.transparent),
+                    borderRadius: BorderRadius.only(
+                        topRight: Radius.circular(50),
+                        bottomLeft: Radius.circular(50),
+                        bottomRight: Radius.circular(50)),
+                  ),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.only(bottom: 5.0),
+                        child: Text(
+                          "Agartha Harkness",
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold, fontSize: 18),
+                          maxLines: 1,
+                        ),
+                      ),
+                      Text.rich(
+                        TextSpan(
+                            text:
+                                "his property takes FlexFit value as a parameter. It decides how a Flexible child widget will fill the space available to it. A child widget can choose to take the maximum area with FlexFit.tight value or it can choose a minimum area with FlexFit.loose value. Or it can be assigned FlexFit.valuesddddddddddddddddddddddddddddddddd",
+                            style: TextStyle(
+                                fontSize: 18,
+                                color: Colors.black87,
+                                fontWeight: FontWeight.w400)),
+                        maxLines: 5,
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                    ],
+                  ),
+                ),
+
+                // SizedBox(height: height*0.005,),
+                Text(
+                  "02-04-2020 08:43 PM",
+                  style: TextStyle(
+                      color: Colors.grey[400],
+                      fontSize: 15,
+                      fontWeight: FontWeight.w500),
+                  textAlign: TextAlign.left,
+                )
+              ],
+            ),
+          ),
         ],
       ),
     );

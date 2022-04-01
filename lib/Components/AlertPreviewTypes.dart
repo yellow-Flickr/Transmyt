@@ -4,7 +4,7 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:transmyt/Models/ChatPreview.dart';
-import 'package:transmyt/Screens/Chats.dart';
+import 'package:transmyt/Screens/Contacts.dart';
 
 class ChatAlertPreview extends StatefulWidget {
   ChatPreview chatPreview;
@@ -24,7 +24,7 @@ class _ChatAlertPreviewState extends State<ChatAlertPreview> {
     return GestureDetector(
       onTap: () {
         Navigator.push(
-            context, MaterialPageRoute(builder: (context) => Chats()));
+            context, MaterialPageRoute(builder: (context) => Contacts()));
       },
       child: Container(
           height: height * 0.11,
@@ -56,13 +56,13 @@ class _ChatAlertPreviewState extends State<ChatAlertPreview> {
                     radius: 40,
                     backgroundColor: Colors
                         .primaries[Random().nextInt(Colors.primaries.length)],
-                    foregroundImage: NetworkImage(widget.chatPreview.image),
-                    onForegroundImageError: (exception, stackTrace) {
-                      setState(() {
-                        initials = widget.chatPreview.name[0] +
-                            widget.chatPreview.name[1];
-                      });
-                    },
+                    // foregroundImage: NetworkImage(widget.chatPreview.image),
+                    // onForegroundImageError: (exception, stackTrace) {
+                    //   setState(() {
+                    //     initials = widget.chatPreview.name[0] +
+                    //         widget.chatPreview.name[1];
+                    //   });
+                    // },
                     child: Icon(
                       Icons.person_outline_rounded,
                       size: 30,
@@ -75,7 +75,7 @@ class _ChatAlertPreviewState extends State<ChatAlertPreview> {
                       height: 50,
                       width: 20,
                       decoration: BoxDecoration(
-                          border: Border.all(color: Colors.white, width: 4),
+                          border: Border.all(color: Colors.grey[300]!, width: 4),
                           color: widget.chatPreview.isActive
                               ? Colors.cyan
                               : Colors.grey,
@@ -211,13 +211,13 @@ class _GroupAlertPreviewState extends State<GroupAlertPreview> {
                   radius: 40,
                   backgroundColor: Colors
                       .primaries[Random().nextInt(Colors.primaries.length)],
-                  foregroundImage: NetworkImage(widget.groupPreview.image),
-                  onForegroundImageError: (exception, stackTrace) {
-                    setState(() {
-                      initials = widget.groupPreview.name[0] +
-                          widget.groupPreview.name[1];
-                    });
-                  },
+                  // foregroundImage: NetworkImage(widget.groupPreview.image),
+                  // onForegroundImageError: (exception, stackTrace) {
+                  //   setState(() {
+                  //     initials = widget.groupPreview.name[0] +
+                  //         widget.groupPreview.name[1];
+                  //   });
+                  // },
                   // backgroundImage: ,
                   child: Visibility(
                     visible: initials.isNotEmpty,
@@ -237,7 +237,7 @@ class _GroupAlertPreviewState extends State<GroupAlertPreview> {
                     height: 50,
                     width: 20,
                     decoration: BoxDecoration(
-                        border: Border.all(color: Colors.white, width: 4),
+                        border: Border.all(color: Colors.grey[300]!, width: 4),
                         color: widget.groupPreview.isActive
                             ? Colors.cyan
                             : Colors.grey,
@@ -277,8 +277,8 @@ class _GroupAlertPreviewState extends State<GroupAlertPreview> {
                                     radius: 13,
                                     backgroundColor: Colors.primaries[Random()
                                         .nextInt(Colors.primaries.length)],
-                                    foregroundImage: NetworkImage(
-                                        widget.groupPreview.groupMembers.last),
+                                    // foregroundImage: NetworkImage(
+                                    //     widget.groupPreview.groupMembers.last),
 
                                     // backgroundImage: ,
                                     child: Icon(
@@ -296,8 +296,8 @@ class _GroupAlertPreviewState extends State<GroupAlertPreview> {
                                     radius: 13,
                                     backgroundColor: Colors.primaries[Random()
                                         .nextInt(Colors.primaries.length)],
-                                    foregroundImage: NetworkImage(
-                                        widget.groupPreview.groupMembers.first),
+                                    // foregroundImage: NetworkImage(
+                                    //     widget.groupPreview.groupMembers.first),
                                     child: Icon(
                                       Icons.person,
                                       size: 10,
@@ -425,13 +425,13 @@ class _CallAlertPreviewState extends State<CallAlertPreview> {
                   backgroundColor: Colors
                       .primaries[Random().nextInt(Colors.primaries.length)],
 
-                  foregroundImage: NetworkImage(widget.callPreview.image),
-                  onForegroundImageError: (exception, stackTrace) {
-                    setState(() {
-                      initials = widget.callPreview.name[0] +
-                          widget.callPreview.name[1];
-                    });
-                  },
+                  // foregroundImage: NetworkImage(widget.callPreview.image),
+                  // onForegroundImageError: (exception, stackTrace) {
+                  //   setState(() {
+                  //     initials = widget.callPreview.name[0] +
+                  //         widget.callPreview.name[1];
+                  //   });
+                  // },
                   // backgroundImage: ,
                   child: Visibility(
                     visible: initials.isNotEmpty,
@@ -451,7 +451,7 @@ class _CallAlertPreviewState extends State<CallAlertPreview> {
                     height: 50,
                     width: 20,
                     decoration: BoxDecoration(
-                        border: Border.all(color: Colors.white, width: 4),
+                        border: Border.all(color: Colors.grey[300]!, width: 4),
                         color: widget.callPreview.isActive
                             ? Colors.cyan
                             : Colors.grey,

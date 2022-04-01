@@ -1,5 +1,9 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
+/// App Splash Screen
+/// Consist of a background color stacked on with a Doodle image stacked on with round edge container with text 'TransMyt' in font sarina
+/// This screen is suspended for Duration in screenDelayTime() before redirecting to redirectToPage()*/
+
 import 'dart:async';
 
 import 'package:flutter/material.dart';
@@ -14,27 +18,28 @@ class Launcher extends StatefulWidget {
 }
 
 class _LauncherState extends State<Launcher> {
-  startTime() async {
+  //Screen delay function 
+  screenDelayTime() async {
     var _duration = Duration(seconds: 2);
-    return Timer(_duration, navigationPage);
+    return Timer(_duration, redirectToPage);
   }
 
-  void navigationPage() {
+  void redirectToPage() {
     Navigator.of(context)
-        .push(MaterialPageRoute(builder: (context) => Dashboard()));
+        .pushReplacement(MaterialPageRoute(builder: (context) => Dashboard()));
   }
 
   @override
   void initState() {
     super.initState();
     // registerCustomer();
-    startTime();
+    screenDelayTime();
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Color(0xff6925ad),
+        backgroundColor: Color(0xff6925ad),// Full Screen background color
         body: Stack(
           children: [
             // Column(
@@ -52,10 +57,12 @@ class _LauncherState extends State<Launcher> {
                 color: Colors.transparent,
                 image: DecorationImage(
                     fit: BoxFit.fitHeight,
-                    image: AssetImage('vector/matrix.png')),
+                    image: AssetImage('vector/matrix.png')),// Full Screen Background image
               ),
               height: MediaQuery.of(context).size.height,
             ),
+
+            // Round Edge Container with text TransMyt
             Center(
               child: Container(
                 padding: EdgeInsets.all(10),
@@ -72,6 +79,8 @@ class _LauncherState extends State<Launcher> {
                         ]),
                   ),
                 ),
+
+                // Shadow effect for a neumorphic view
                 decoration: BoxDecoration(
                     color: Color(0xFF6925ad),
                     borderRadius: const BorderRadius.all(Radius.circular(50)),
@@ -81,13 +90,13 @@ class _LauncherState extends State<Launcher> {
                         offset: const Offset(-11, 11),
                         blurRadius: 27.0,
                         spreadRadius: 1.0,
-                      ),
+                      ),//Bottom left corner shadow
                       BoxShadow(
                         color: Color(0xFF481a77),
                         offset: const Offset(11, -11),
                         blurRadius: 27.0,
                         spreadRadius: 1.0,
-                      ),
+                      ), //Top right corner shadow
                     ]),
               ),
             ),
