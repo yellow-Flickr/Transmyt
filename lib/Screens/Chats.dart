@@ -19,7 +19,6 @@ class _ChatsState extends State<Chats> {
     return Scaffold(
         backgroundColor: Colors.transparent,
         resizeToAvoidBottomInset: true,
-         
         appBar: AppBar(
           backgroundColor: Color(0xff6925ad),
           elevation: 0,
@@ -84,7 +83,7 @@ class _ChatsState extends State<Chats> {
                 top: height * 0.03,
                 left: width * 0.02,
                 right: width * 0.02,
-                bottom: height *0.05),
+                bottom: height * 0.05),
             child: Column(
               mainAxisSize: MainAxisSize.min,
               crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -188,15 +187,12 @@ class _ChatsState extends State<Chats> {
                     enabledBorder: InputBorder.none,
                     errorBorder: InputBorder.none,
                     disabledBorder: InputBorder.none,
-                     
+
                     contentPadding:
                         EdgeInsets.symmetric(horizontal: 15, vertical: 15.0),
                   ),
-                 
                 ),
-              )
-            
-              )
+              ))
         ]));
   }
 }

@@ -5,14 +5,14 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:transmyt/Components/ContactCard.dart';
 
-class Contacts extends StatefulWidget {
-  const Contacts({Key? key}) : super(key: key);
+class CallContacts extends StatefulWidget {
+  const CallContacts({Key? key}) : super(key: key);
 
   @override
-  _ContactsState createState() => _ContactsState();
+  _CallContactsState createState() => _CallContactsState();
 }
 
-class _ContactsState extends State<Contacts> {
+class _CallContactsState extends State<CallContacts> {
   @override
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height;
@@ -25,20 +25,17 @@ class _ContactsState extends State<Contacts> {
           backgroundColor: Color(0xff6925ad),
           elevation: 0,
           centerTitle: false,
-          leadingWidth: 50,
+          leadingWidth: 60,
           titleSpacing: 0.0,
-          toolbarHeight: height * 0.1,
-          title: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
+          toolbarHeight: height * 0.07,
+          title:ListTile(title:
+          Text(
                 "Select Contact",
                 style: TextStyle(
                     color: Colors.white,
                     fontSize: 20,
                     fontWeight: FontWeight.bold),
-              ),
-              SizedBox(height: height * 0.01,),
+              ),subtitle: 
               Text(
                 "204 Contacts",
                 style: TextStyle(
@@ -46,9 +43,28 @@ class _ContactsState extends State<Contacts> {
                   fontSize: 15,
                   // fontWeight: FontWeight.bold
                 ),
-              ),
-            ],
-          ),
+            )),
+          //  Column(
+          //   crossAxisAlignment: CrossAxisAlignment.start,
+          //   children: [
+          //     Text(
+          //       "Select Contact",
+          //       style: TextStyle(
+          //           color: Colors.white,
+          //           fontSize: 20,
+          //           fontWeight: FontWeight.bold),
+          //     ),
+          //     SizedBox(height: height * 0.01,),
+          //     Text(
+          //       "204 Contacts",
+          //       style: TextStyle(
+          //         color: Colors.white,
+          //         fontSize: 15,
+          //         // fontWeight: FontWeight.bold
+          //       ),
+          //     ),
+          //   ],
+          // ),
           actions: [
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 12.0),
@@ -78,20 +94,16 @@ class _ContactsState extends State<Contacts> {
           SingleChildScrollView(
             // reverse: true,
             padding: EdgeInsets.only(
-                top: height * 0.02,
-                left: width * 0.02,
-                right: width * 0.02,
+                top: height * 0.015,
+                left: width * 0.015,
+                right: width * 0.015,
                 bottom: height * 0.05),
             child: Column(
               children: [
-                RawContactCard(),
-                SizedBox(
-                  height: 20,
-                ),
-                InvitationContactCard(),
-                SizedBox(
-                  height: 20,
-                ),
+           
+                // SizedBox(
+                //   height: 20,
+                // ),
                 // GroupAddCard(),
                 CallAddCard(),
               ],

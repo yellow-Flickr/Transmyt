@@ -24,7 +24,7 @@ class _DashboardState extends State<Dashboard> {
     double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
     return DefaultTabController(
-      length: 4,
+      length: 5,
       child: Scaffold(
         backgroundColor: Colors.grey[300],
         appBar: AppBar(
@@ -89,61 +89,47 @@ class _DashboardState extends State<Dashboard> {
           ],
           bottom: PreferredSize(
             preferredSize: Size.fromHeight(height * 0.05),
-            child: ListView(
-                shrinkWrap: true,
-                padding: EdgeInsets.only(left: width * 0.04),
-                children: [
-                  Row(
-                    children: [
-                      Expanded(
-                        flex: 1,
-                        child: Icon(
-                          Icons.camera_alt_rounded,
-                          color: Color(0xffffffff),
-                          size: 30,
-                        ),
-                      ),
-                      Expanded(
-                        flex: 6,
-                        child: TabBar(
-                          padding: EdgeInsets.only(right: 50),
-                          indicatorWeight: 5,
-                          indicatorSize: TabBarIndicatorSize.label,
-                          indicatorPadding:
-                              EdgeInsets.symmetric(horizontal: 5, vertical: 5),
-                          labelPadding: EdgeInsets.symmetric(horizontal: 5.0),
-                          tabs: [
-                            Tab(
-                              child: Text("Chats",
-                                  style: TextStyle(
-                                    fontSize: 18,
-                                  )),
-                            ),
-                            Tab(
-                              child: Text("Group",
-                                  style: TextStyle(
-                                    fontSize: 18,
-                                  )),
-                            ),
-                            Tab(
-                              child: Text("Status",
-                                  style: TextStyle(
-                                    fontSize: 18,
-                                  )),
-                            ),
-                            Tab(
-                              child: Text("Call",
-                                  style: TextStyle(
-                                    fontSize: 18,
-                                  )),
-                            ),
-                          ],
-                          indicatorColor: Colors.white,
-                        ),
-                      ),
-                    ],
+            child: TabBar(
+              // padding: EdgeInsets.only(right: 50),
+              indicatorWeight: 5,
+              indicatorSize: TabBarIndicatorSize.label,
+              indicatorPadding:
+                  EdgeInsets.symmetric(horizontal: 5, vertical: 5),
+              labelPadding: EdgeInsets.symmetric(horizontal: 5.0),
+              tabs: [
+                 Icon(
+                    Icons.camera_alt_rounded,
+                    color: Color(0xffffffff),
+                    size: 30,
                   ),
-                ]),
+                
+                Tab(
+                  child: Text("Chats",
+                      style: TextStyle(
+                        fontSize: 18,
+                      )),
+                ),
+                Tab(
+                  child: Text("Group",
+                      style: TextStyle(
+                        fontSize: 18,
+                      )),
+                ),
+                Tab(
+                  child: Text("Status",
+                      style: TextStyle(
+                        fontSize: 18,
+                      )),
+                ),
+                Tab(
+                  child: Text("Call",
+                      style: TextStyle(
+                        fontSize: 18,
+                      )),
+                ),
+              ],
+              indicatorColor: Colors.white,
+            ),
           ),
         ),
         body: Stack(
@@ -164,7 +150,7 @@ class _DashboardState extends State<Dashboard> {
             SizedBox(
                 height: height,
                 child: TabBarView(
-                    children: [ChatTab(), GroupTab(), StatusTab(), CallsTab()])
+                    children: [Container(),ChatTab(), GroupTab(), StatusTab(), CallsTab()  ])
 
                 // SingleChildScrollView(
                 //   padding: EdgeInsets.symmetric(horizontal: width * 0.04),
