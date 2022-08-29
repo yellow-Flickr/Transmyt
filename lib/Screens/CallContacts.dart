@@ -105,7 +105,7 @@ class _CallContactsState extends State<CallContacts> {
                 //   height: 20,
                 // ),
                 // GroupAddCard(),
-                CallAddCard(),
+                CallAddCard(initials: 'AD',),
               ],
             ),
           ),

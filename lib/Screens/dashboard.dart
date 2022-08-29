@@ -24,6 +24,7 @@ class _DashboardState extends State<Dashboard> {
     double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
     return DefaultTabController(
+      initialIndex: 1,
       length: 5,
       child: Scaffold(
         backgroundColor: Colors.grey[300],

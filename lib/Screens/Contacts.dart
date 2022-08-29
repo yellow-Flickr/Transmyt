@@ -92,9 +92,8 @@ class _ContactsState extends State<Contacts> {
                 SizedBox(
                   height: 20,
                 ),
-                // GroupAddCard(),
-                CallAddCard(),
-              ],
+                GroupAddCard(),
+               ],
             ),
           ),
         ]));
