@@ -29,9 +29,9 @@ class _ChatTabState extends State<ChatTab> {
           height: height * 0.1,
           width: width * 0.15,
           child: Icon(
-            Icons.message_outlined,
+            Icons.send_sharp,
             color: Colors.white,
-            size: 24,
+            size: 26,
           ),
           decoration:
               BoxDecoration(shape: BoxShape.circle, color: Color(0xff6925ad)),

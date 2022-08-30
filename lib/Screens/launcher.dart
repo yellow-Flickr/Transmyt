@@ -18,7 +18,7 @@ class Launcher extends StatefulWidget {
 }
 
 class _LauncherState extends State<Launcher> {
-  //Screen delay function 
+  //Screen delay function
   screenDelayTime() async {
     var _duration = Duration(seconds: 2);
     return Timer(_duration, redirectToPage);
@@ -29,6 +29,8 @@ class _LauncherState extends State<Launcher> {
         .pushReplacement(MaterialPageRoute(builder: (context) => Dashboard()));
   }
 
+  final ImageProvider imageAsset = const AssetImage('vector/matrix2.png');
+
   @override
   void initState() {
     super.initState();
@@ -38,15 +40,16 @@ class _LauncherState extends State<Launcher> {
 
   @override
   Widget build(BuildContext context) {
+    precacheImage(imageAsset, context);
     return Scaffold(
-        backgroundColor: Color(0xff6925ad),// Full Screen background color
+        backgroundColor: Color(0xff6925ad), // Full Screen background color
         body: Stack(
           children: [
             // Column(
             //   children: [
             //     Expanded(
             //         child: Image.asset(
-            //       "vector/matrix.png",
+            //       "vector/matrix2.png",
             //       repeat: ImageRepeat.repeat,
             //     )),
             //   ],
@@ -57,7 +60,7 @@ class _LauncherState extends State<Launcher> {
                 color: Colors.transparent,
                 image: DecorationImage(
                     fit: BoxFit.fitHeight,
-                    image: AssetImage('vector/matrix.png')),// Full Screen Background image
+                    image: imageAsset), // Full Screen Background image
               ),
               height: MediaQuery.of(context).size.height,
             ),
@@ -90,7 +93,7 @@ class _LauncherState extends State<Launcher> {
                         offset: const Offset(-11, 11),
                         blurRadius: 27.0,
                         spreadRadius: 1.0,
-                      ),//Bottom left corner shadow
+                      ), //Bottom left corner shadow
                       BoxShadow(
                         color: Color(0xFF481a77),
                         offset: const Offset(11, -11),

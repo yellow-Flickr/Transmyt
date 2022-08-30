@@ -25,30 +25,25 @@ class _ContactsState extends State<Contacts> {
           backgroundColor: Color(0xff6925ad),
           elevation: 0,
           centerTitle: false,
-          leadingWidth: 50,
+          leadingWidth: 60,
           titleSpacing: 0.0,
-          toolbarHeight: height * 0.1,
-          title: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                "Select Contact",
+          toolbarHeight: height * 0.07,
+          title: ListTile(
+              title: Text(
+                "New Chat",
                 style: TextStyle(
                     color: Colors.white,
                     fontSize: 20,
                     fontWeight: FontWeight.bold),
               ),
-              SizedBox(height: height * 0.01,),
-              Text(
+              subtitle: Text(
                 "204 Contacts",
                 style: TextStyle(
                   color: Colors.white,
                   fontSize: 15,
                   // fontWeight: FontWeight.bold
                 ),
-              ),
-            ],
-          ),
+              )),
           actions: [
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 12.0),
@@ -71,29 +66,27 @@ class _ContactsState extends State<Contacts> {
             decoration: BoxDecoration(
               color: Colors.grey[300],
               image: DecorationImage(
-                  fit: BoxFit.cover, image: AssetImage('vector/matrix.png')),
+                  fit: BoxFit.cover, image: AssetImage('vector/matrix2.png')),
             ),
             height: MediaQuery.of(context).size.height,
           ),
           SingleChildScrollView(
             // reverse: true,
             padding: EdgeInsets.only(
-                top: height * 0.02,
-                left: width * 0.02,
-                right: width * 0.02,
+                top: height * 0.015,
+                left: width * 0.015,
+                right: width * 0.015,
                 bottom: height * 0.05),
             child: Column(
               children: [
-                RawContactCard(),
-                SizedBox(
-                  height: 20,
+                // SizedBox(
+                //   height: 20,
+                // ),
+                // GroupAddCard(),
+                CallAddCard(
+                  initials: 'AD',
                 ),
-                InvitationContactCard(),
-                SizedBox(
-                  height: 20,
-                ),
-                GroupAddCard(),
-               ],
+              ],
             ),
           ),
         ]));

@@ -28,22 +28,22 @@ class _CallContactsState extends State<CallContacts> {
           leadingWidth: 60,
           titleSpacing: 0.0,
           toolbarHeight: height * 0.07,
-          title:ListTile(title:
-          Text(
+          title: ListTile(
+              title: Text(
                 "Select Contact",
                 style: TextStyle(
                     color: Colors.white,
                     fontSize: 20,
                     fontWeight: FontWeight.bold),
-              ),subtitle: 
-              Text(
+              ),
+              subtitle: Text(
                 "204 Contacts",
                 style: TextStyle(
                   color: Colors.white,
                   fontSize: 15,
                   // fontWeight: FontWeight.bold
                 ),
-            )),
+              )),
           //  Column(
           //   crossAxisAlignment: CrossAxisAlignment.start,
           //   children: [
@@ -87,7 +87,7 @@ class _CallContactsState extends State<CallContacts> {
             decoration: BoxDecoration(
               color: Colors.grey[300],
               image: DecorationImage(
-                  fit: BoxFit.cover, image: AssetImage('vector/matrix.png')),
+                  fit: BoxFit.cover, image: AssetImage('vector/matrix2.png')),
             ),
             height: MediaQuery.of(context).size.height,
           ),
@@ -100,12 +100,13 @@ class _CallContactsState extends State<CallContacts> {
                 bottom: height * 0.05),
             child: Column(
               children: [
-           
                 // SizedBox(
                 //   height: 20,
                 // ),
                 // GroupAddCard(),
-                CallAddCard(initials: 'AD',),
+                CallAddCard(
+                  initials: 'AD',
+                ),
               ],
             ),
           ),

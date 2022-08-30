@@ -98,12 +98,11 @@ class _DashboardState extends State<Dashboard> {
                   EdgeInsets.symmetric(horizontal: 5, vertical: 5),
               labelPadding: EdgeInsets.symmetric(horizontal: 5.0),
               tabs: [
-                 Icon(
-                    Icons.camera_alt_rounded,
-                    color: Color(0xffffffff),
-                    size: 30,
-                  ),
-                
+                Icon(
+                  Icons.camera_alt_rounded,
+                  color: Color(0xffffffff),
+                  size: 30,
+                ),
                 Tab(
                   child: Text("Chats",
                       style: TextStyle(
@@ -139,8 +138,9 @@ class _DashboardState extends State<Dashboard> {
               decoration: BoxDecoration(
                 color: Colors.transparent,
                 image: DecorationImage(
+                  opacity: 0.7,
                     fit: BoxFit.fitHeight,
-                    image: AssetImage('vector/matrix.png')),
+                    image: AssetImage('vector/matrix2.png')),
               ),
               height: MediaQuery.of(context).size.height,
             ),
@@ -150,8 +150,13 @@ class _DashboardState extends State<Dashboard> {
             // ),
             SizedBox(
                 height: height,
-                child: TabBarView(
-                    children: [Container(),ChatTab(), GroupTab(), StatusTab(), CallsTab()  ])
+                child: TabBarView(children: [
+                  Container(),
+                  ChatTab(),
+                  GroupTab(),
+                  StatusTab(),
+                  CallsTab()
+                ])
 
                 // SingleChildScrollView(
                 //   padding: EdgeInsets.symmetric(horizontal: width * 0.04),

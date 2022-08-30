@@ -73,7 +73,7 @@ class _ChatsState extends State<Chats> {
               image: DecorationImage(
                   // colorFilter: ColorFilter.,
                   fit: BoxFit.cover,
-                  image: AssetImage('vector/matrix.png')),
+                  image: AssetImage('vector/matrix2.png')),
             ),
             height: MediaQuery.of(context).size.height,
           ),
