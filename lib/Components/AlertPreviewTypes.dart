@@ -5,7 +5,6 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:transmyt/Models/ChatPreview.dart';
 import 'package:transmyt/Screens/Chats.dart';
-import 'package:transmyt/Screens/Contacts.dart';
 
 class ChatAlertPreview extends StatefulWidget {
   ChatPreview chatPreview;
@@ -177,6 +176,10 @@ class GroupAlertPreview extends StatefulWidget {
 
 class _GroupAlertPreviewState extends State<GroupAlertPreview> {
   String initials = "";
+  final bgColor = Color.fromARGB(
+      0, Random().nextInt(255), Random().nextInt(255), Random().nextInt(255));  
+      
+  // final  gColor = Color.fromARGB(0, 0, 0, 90);
   @override
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height;
@@ -212,15 +215,14 @@ class _GroupAlertPreviewState extends State<GroupAlertPreview> {
                 child: Stack(children: [
                   CircleAvatar(
                     radius: 40,
-                    backgroundColor: Colors
-                        .primaries[Random().nextInt(Colors.primaries.length)],
-                    // foregroundImage: NetworkImage(widget.groupPreview.image),
-                    // onForegroundImageError: (exception, stackTrace) {
-                    //   setState(() {
-                    //     initials = widget.groupPreview.name[0] +
-                    //         widget.groupPreview.name[1];
-                    //   });
-                    // },
+                    backgroundColor:bgColor,
+                    foregroundImage: NetworkImage(widget.groupPreview.image),
+                    onForegroundImageError: (exception, stackTrace) {
+                      setState(() {
+                        initials = widget.groupPreview.name[0] +
+                            widget.groupPreview.name[1];
+                      });
+                    },
                     // backgroundImage: ,
                     child: Visibility(
                       visible: initials.isNotEmpty,

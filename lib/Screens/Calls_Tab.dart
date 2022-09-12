@@ -17,7 +17,8 @@ class _CallsTabState extends State<CallsTab> {
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height;
     double width = MediaQuery.of(context).size.width;
-    return Scaffold(  backgroundColor: Colors.transparent,
+    return Scaffold(
+      backgroundColor: Colors.transparent,
       floatingActionButtonLocation: FloatingActionButtonLocation.endDocked,
       floatingActionButton: GestureDetector(
         onTap: () {
@@ -44,7 +45,7 @@ class _CallsTabState extends State<CallsTab> {
               height: 20,
             );
           },
-    
+
           // padding: EdgeInsets.symmetric(vertical: ),
           itemCount: callPreviewsDemo.length,
           itemBuilder: (context, index) {
