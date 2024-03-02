@@ -30,6 +30,7 @@ class _LauncherState extends State<Launcher> {
   }
 
   final ImageProvider imageAsset = const AssetImage('vector/matrix2.png');
+  final ImageProvider logo = const AssetImage('vector/logo.png');
 
   @override
   void initState() {
@@ -45,64 +46,42 @@ class _LauncherState extends State<Launcher> {
         backgroundColor: Color(0xff6925ad), // Full Screen background color
         body: Stack(
           children: [
-            // Column(
-            //   children: [
-            //     Expanded(
-            //         child: Image.asset(
-            //       "vector/matrix2.png",
-            //       repeat: ImageRepeat.repeat,
-            //     )),
-            //   ],
+            // Container(
+            //   decoration: BoxDecoration(
+            //     color: Colors.transparent,
+            //     image: DecorationImage(
+            //         fit: BoxFit.cover,
+            //         image: imageAsset), // Full Screen Background image
+            //   ),
+            //   height: MediaQuery.of(context).size.height,
             // ),
 
-            Container(
-              decoration: BoxDecoration(
-                color: Colors.transparent,
-                image: DecorationImage(
-                    fit: BoxFit.fitHeight,
-                    image: imageAsset), // Full Screen Background image
-              ),
-              height: MediaQuery.of(context).size.height,
-            ),
-
             // Round Edge Container with text TransMyt
-            Center(
-              child: Container(
-                padding: EdgeInsets.all(10),
-                width: MediaQuery.of(context).size.width * 0.7,
-                height: MediaQuery.of(context).size.height * 0.1,
-                child: FittedBox(
-                  child: RichText(
-                    text: TextSpan(
-                        text: "Trans",
-                        style: GoogleFonts.sarina(
-                            fontSize: 78, color: Color(0xffffffff)),
-                        children: [
-                          TextSpan(text: 'Myt', style: GoogleFonts.sarina())
-                        ]),
-                  ),
-                ),
+            // Center(
+            //   child: Container(
+            //     padding: EdgeInsets.all(10),
+            //     width: MediaQuery.of(context).size.width * 0.7,
+            //     height: MediaQuery.of(context).size.height * 0.1,
 
-                // Shadow effect for a neumorphic view
-                decoration: BoxDecoration(
-                    color: Color(0xFF6925ad),
-                    borderRadius: const BorderRadius.all(Radius.circular(50)),
-                    boxShadow: [
-                      BoxShadow(
-                        color: Color(0xFF8a30e3),
-                        offset: const Offset(-11, 11),
-                        blurRadius: 27.0,
-                        spreadRadius: 1.0,
-                      ), //Bottom left corner shadow
-                      BoxShadow(
-                        color: Color(0xFF481a77),
-                        offset: const Offset(11, -11),
-                        blurRadius: 27.0,
-                        spreadRadius: 1.0,
-                      ), //Top right corner shadow
-                    ]),
-              ),
-            ),
+            //     // Shadow effect for a neumorphic view
+
+            //     child: FittedBox(
+            //       child: RichText(
+            //         text: TextSpan(
+            //             text: "Trans",
+            //             style: GoogleFonts.montserrat(
+            //                 fontSize: 78, color: Color(0xffffffff)),
+            //             children: [
+            //               TextSpan(text: 'Myt', style: GoogleFonts.montserrat())
+            //             ]),
+            //       ),
+            //     ),
+            //   ),
+            // ),
+
+            Center(
+              child: Image(image: logo),
+            )
           ],
         ));
   }

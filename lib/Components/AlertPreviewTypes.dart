@@ -3,6 +3,7 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:sizer/sizer.dart';
 import 'package:transmyt/Models/ChatPreview.dart';
 import 'package:transmyt/Screens/Chats.dart';
 
@@ -19,17 +20,16 @@ class _ChatAlertPreviewState extends State<ChatAlertPreview> {
   String initials = '';
   @override
   Widget build(BuildContext context) {
-    double height = MediaQuery.of(context).size.height;
     double width = MediaQuery.of(context).size.width;
     return GestureDetector(
       onTap: () => Navigator.push(
           context, MaterialPageRoute(builder: (builder) => Chats())),
       child: Container(
-          height: height * 0.11,
-          padding: EdgeInsets.symmetric(horizontal: width * 0.02),
+          // height: height * 0.11,
+          padding: EdgeInsets.symmetric(horizontal: 2.w, vertical: 1.h),
           decoration: BoxDecoration(
               color: Colors.grey[300],
-              borderRadius: BorderRadius.all(Radius.circular(20)),
+              borderRadius: BorderRadius.all(Radius.circular(10)),
               boxShadow: [
                 BoxShadow(
                   color: Colors.white,
@@ -47,45 +47,23 @@ class _ChatAlertPreviewState extends State<ChatAlertPreview> {
           child: Row(
             // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              Expanded(
-                flex: 1,
-                child: Stack(children: [
-                  CircleAvatar(
-                    radius: 40,
-                    backgroundColor: Colors
-                        .primaries[Random().nextInt(Colors.primaries.length)],
-                    // foregroundImage: NetworkImage(widget.chatPreview.image),
-                    // onForegroundImageError: (exception, stackTrace) {
-                    //   setState(() {
-                    //     initials = widget.chatPreview.name[0] +
-                    //         widget.chatPreview.name[1];
-                    //   });
-                    // },
-                    child: Icon(
-                      Icons.person_outline_rounded,
-                      size: 30,
-                    ),
-                  ),
-                  Positioned(
-                    left: 50,
-                    top: 30,
-                    child: Container(
-                      height: 50,
-                      width: 20,
-                      decoration: BoxDecoration(
-                          border:
-                              Border.all(color: Colors.grey[300]!, width: 4),
-                          color: widget.chatPreview.isActive
-                              ? Colors.cyan
-                              : Colors.grey,
-                          shape: BoxShape.circle),
-                    ),
-                  )
-                ]),
+              Container(
+                width: 12.w,
+                height:12.w,
+                decoration: BoxDecoration(
+                    color: Color(0xFF2492db),
+              
+                    borderRadius: BorderRadius.circular(10)),
+                 
+                child: Icon(
+                  Icons.person_rounded,
+                  color: Colors.white,
+                  size: 30,
+                ),
               ),
-              SizedBox(
-                width: width * 0.05,
-              ),
+              // SizedBox(
+              //   width: width * 0.05,
+              // ),
               Expanded(
                   flex: 4,
                   child: Column(
@@ -99,7 +77,7 @@ class _ChatAlertPreviewState extends State<ChatAlertPreview> {
                               widget.chatPreview.name,
                               style: TextStyle(
                                   fontWeight: FontWeight.bold,
-                                  fontSize: 25,
+                                  fontSize: 18,
                                   overflow: TextOverflow.ellipsis,
                                   color: Colors.grey.shade800),
                             ),
@@ -110,7 +88,7 @@ class _ChatAlertPreviewState extends State<ChatAlertPreview> {
                               widget.chatPreview.time,
                               textAlign: TextAlign.right,
                               style:
-                                  TextStyle(color: Colors.grey, fontSize: 12),
+                                  TextStyle(color: Colors.grey, fontSize: 10),
                             ),
                           )
                         ],
@@ -177,8 +155,8 @@ class GroupAlertPreview extends StatefulWidget {
 class _GroupAlertPreviewState extends State<GroupAlertPreview> {
   String initials = "";
   final bgColor = Color.fromARGB(
-      0, Random().nextInt(255), Random().nextInt(255), Random().nextInt(255));  
-      
+      0, Random().nextInt(255), Random().nextInt(255), Random().nextInt(255));
+
   // final  gColor = Color.fromARGB(0, 0, 0, 90);
   @override
   Widget build(BuildContext context) {
@@ -215,7 +193,7 @@ class _GroupAlertPreviewState extends State<GroupAlertPreview> {
                 child: Stack(children: [
                   CircleAvatar(
                     radius: 40,
-                    backgroundColor:bgColor,
+                    backgroundColor: bgColor,
                     foregroundImage: NetworkImage(widget.groupPreview.image),
                     onForegroundImageError: (exception, stackTrace) {
                       setState(() {

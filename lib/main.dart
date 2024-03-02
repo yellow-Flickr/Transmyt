@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sizer/sizer.dart';
 import 'package:transmyt/Screens/launcher.dart';
 
 void main() {
@@ -15,12 +16,12 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
-  
         primarySwatch: Colors.blue,
       ),
-      home: const Launcher(),
+      home: Sizer(builder: (BuildContext context, Orientation orientation,
+          DeviceType deviceType) {
+        return const Launcher();
+      }),
     );
   }
 }
-
-
