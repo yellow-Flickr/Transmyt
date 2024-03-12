@@ -1,6 +1,7 @@
 // ignore_for_file: file_names, prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
+import 'package:sizer/sizer.dart';
 import 'package:transmyt/Components/AlertPreviewTypes.dart';
 import 'package:transmyt/Models/ChatPreview.dart';
 import 'package:transmyt/Screens/Contacts.dart';
@@ -15,8 +16,7 @@ class ChatTab extends StatefulWidget {
 class _ChatTabState extends State<ChatTab> {
   @override
   Widget build(BuildContext context) {
-    double height = MediaQuery.of(context).size.height;
-    double width = MediaQuery.of(context).size.width;
+    
     return Scaffold(
       backgroundColor: Colors.transparent,
       floatingActionButtonLocation: FloatingActionButtonLocation.endDocked,
@@ -26,23 +26,24 @@ class _ChatTabState extends State<ChatTab> {
               context, MaterialPageRoute(builder: (context) => Contacts()));
         },
         child: Container(
-          height: height * 0.1,
-          width: width * 0.15,
+          margin: EdgeInsets.only(bottom: 2.h),
+          height:12.w,
+          width: 12.w,
           child: Icon(
             Icons.send_sharp,
             color: Colors.white,
-            size: 26,
+            size: 15,
           ),
           decoration:
               BoxDecoration(shape: BoxShape.circle, color: Color(0xff6925ad)),
         ),
       ),
-      body: ListView.separated(
-          padding: EdgeInsets.only(
-              top: height * 0.03, left: width * 0.04, right: width * 0.04),
+        body: ListView.separated(
+            padding: EdgeInsets.only(
+                top: 2.h, /* left:4.w, right: 4.w */),
           separatorBuilder: (context, index) {
             return SizedBox(
-              height: 20,
+              height: .7.h,
             );
           },
 

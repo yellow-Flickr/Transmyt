@@ -1,6 +1,7 @@
 // ignore_for_file: file_names, prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
+import 'package:sizer/sizer.dart';
 import 'package:transmyt/Components/ChatBubbleTypes.dart';
 
 class Chats extends StatefulWidget {
@@ -14,87 +15,70 @@ class _ChatsState extends State<Chats> {
   TextEditingController msg = TextEditingController();
   @override
   Widget build(BuildContext context) {
-    double height = MediaQuery.of(context).size.height;
-    double width = MediaQuery.of(context).size.width;
+   
     return Scaffold(
-        backgroundColor: Colors.transparent,
+        backgroundColor: Colors.grey[350],
         resizeToAvoidBottomInset: true,
         appBar: AppBar(
           backgroundColor: Color(0xff6925ad),
+          automaticallyImplyLeading: false,
           elevation: 0,
           centerTitle: false,
           leadingWidth: 50,
-          titleSpacing: 0.0,
-          toolbarHeight: height * 0.1,
-          title: Row(
+           title: Row(
             children: [
-              Padding(
-                padding: const EdgeInsets.only(right: 8.0),
-                child: CircleAvatar(
-                  radius: 30,
-                  backgroundColor: Color(0xffad6925),
-                  child: Icon(
-                    Icons.person,
-                    color: Color(0xffffffff),
-                  ),
+              Container(
+                width: 8.w,
+                height: 8.w,
+                decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(8)),
+                child: Icon(
+                  Icons.person,
+                  color: Color(0xff6925ad),
+                  size: 10,
                 ),
               ),
               Text(
                 "Iron Stark",
                 style: TextStyle(
                     color: Colors.white,
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold),
+                    fontSize: 15,
+                    fontWeight: FontWeight.w600),
               )
             ],
           ),
           actions: [
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 12.0),
-              child: Icon(
-                Icons.videocam,
-                size: 33,
-              ),
+            Icon(
+              Icons.videocam,
+              size: 33,
             ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 12.0),
-              child: Icon(
-                Icons.phone,
-                size: 33,
-              ),
+            Icon(
+              Icons.phone,
+              size: 33,
             )
           ],
         ),
         body: Stack(children: [
-          Container(
-            decoration: BoxDecoration(
-              // color: Colors.transparent,
-              color: Colors.grey[300],
-              image: DecorationImage(
-                  // colorFilter: ColorFilter.,
-                  fit: BoxFit.cover,
-                  image: AssetImage('vector/matrix2.png')),
-            ),
-            height: MediaQuery.of(context).size.height,
-          ),
+        
           SingleChildScrollView(
             reverse: true,
             padding: EdgeInsets.only(
-                top: height * 0.03,
-                left: width * 0.02,
-                right: width * 0.02,
-                bottom: height * 0.05),
+                top: 3.h,
+                left: 2.w,
+                right: 2.w,
+                bottom: 5.h),
             child: Column(
               mainAxisSize: MainAxisSize.min,
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 ReceipientBubble(),
                 SizedBox(
-                  height: height * 0.03,
+                  height: 3.h,
                 ),
                 SenderBubble(),
                 SizedBox(
-                  height: height * 0.03,
+                  height: 3.h,
                 ),
                 Stack(children: [
                   Center(
@@ -106,10 +90,9 @@ class _ChatsState extends State<Chats> {
                     heightFactor: 0.5,
                     child: Container(
                       alignment: Alignment.center,
-                      padding: EdgeInsets.all(5),
-                      // color: Colors.grey[400],
-                      height: height * 0.04,
-                      width: width * 0.25,
+                       // color: Colors.grey[400],
+                      height:4.h,
+                      width: 25.w,
                       decoration: BoxDecoration(
                           color: Colors.grey[400],
                           // border: Border.all(color: Color),
@@ -119,13 +102,13 @@ class _ChatsState extends State<Chats> {
                         style: TextStyle(
                             color: Colors.black87,
                             fontWeight: FontWeight.w400,
-                            fontSize: 18),
+                            fontSize: 10),
                       ),
                     ),
                   ),
                 ]),
                 SizedBox(
-                  height: height * 0.03,
+                  height: 3.h,
                 ),
                 GroupReceipient(),
               ],
@@ -135,7 +118,7 @@ class _ChatsState extends State<Chats> {
               bottom: 5,
               left: 20,
               child: Container(
-                width: width * 0.9,
+                width: 90.w,
                 decoration: BoxDecoration(
                     border: Border.all(
                       width: 3,

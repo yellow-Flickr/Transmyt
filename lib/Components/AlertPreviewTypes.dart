@@ -17,53 +17,36 @@ class ChatAlertPreview extends StatefulWidget {
 }
 
 class _ChatAlertPreviewState extends State<ChatAlertPreview> {
-  String initials = '';
   @override
   Widget build(BuildContext context) {
-    double width = MediaQuery.of(context).size.width;
     return GestureDetector(
       onTap: () => Navigator.push(
           context, MaterialPageRoute(builder: (builder) => Chats())),
       child: Container(
           // height: height * 0.11,
-          padding: EdgeInsets.symmetric(horizontal: 2.w, vertical: 1.h),
+          padding: EdgeInsets.symmetric(horizontal: 2.w, vertical: .8.h),
           decoration: BoxDecoration(
-              color: Colors.grey[300],
-              borderRadius: BorderRadius.all(Radius.circular(10)),
-              boxShadow: [
-                BoxShadow(
-                  color: Colors.white,
-                  offset: const Offset(-5, -5),
-                  blurRadius: 10.0,
-                  spreadRadius: 1.0,
-                ),
-                BoxShadow(
-                  color: Colors.grey[500]!,
-                  offset: const Offset(5, 5),
-                  blurRadius: 10.0,
-                  spreadRadius: 1.0,
-                ),
-              ]),
+            color: Colors.grey[300],
+            // borderRadius: BorderRadius.all(Radius.circular(8)),
+          ),
           child: Row(
             // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               Container(
-                width: 12.w,
-                height:12.w,
+                width: 8.w,
+                height: 8.w,
                 decoration: BoxDecoration(
-                    color: Color(0xFF2492db),
-              
-                    borderRadius: BorderRadius.circular(10)),
-                 
+                    color: Color(0xff6925ad),
+                    borderRadius: BorderRadius.circular(8)),
                 child: Icon(
                   Icons.person_rounded,
                   color: Colors.white,
-                  size: 30,
+                  size: 15,
                 ),
               ),
-              // SizedBox(
-              //   width: width * 0.05,
-              // ),
+              SizedBox(
+                width: 2.w,
+              ),
               Expanded(
                   flex: 4,
                   child: Column(
@@ -76,8 +59,8 @@ class _ChatAlertPreviewState extends State<ChatAlertPreview> {
                             child: Text(
                               widget.chatPreview.name,
                               style: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 18,
+                                  fontWeight: FontWeight.w600,
+                                  fontSize: 15,
                                   overflow: TextOverflow.ellipsis,
                                   color: Colors.grey.shade800),
                             ),
@@ -87,8 +70,7 @@ class _ChatAlertPreviewState extends State<ChatAlertPreview> {
                             child: Text(
                               widget.chatPreview.time,
                               textAlign: TextAlign.right,
-                              style:
-                                  TextStyle(color: Colors.grey, fontSize: 10),
+                              style: TextStyle(color: Colors.grey, fontSize: 8),
                             ),
                           )
                         ],
@@ -111,11 +93,11 @@ class _ChatAlertPreviewState extends State<ChatAlertPreview> {
                                       MessageStatus.viewed
                                   ? Colors.green
                                   : Colors.grey,
-                              size: 15,
+                              size: 13,
                             ),
                           ),
                           SizedBox(
-                            width: width * 0.01,
+                            width: 1.w,
                           ),
                           Expanded(
                             child: Text(
@@ -127,6 +109,7 @@ class _ChatAlertPreviewState extends State<ChatAlertPreview> {
                                               MessageStatus.unread)
                                       ? Colors.black
                                       : Colors.grey,
+                                  fontSize: 12,
                                   fontWeight: FontWeight.w500,
                                   overflow: TextOverflow.ellipsis),
                             ),
@@ -153,66 +136,74 @@ class GroupAlertPreview extends StatefulWidget {
 }
 
 class _GroupAlertPreviewState extends State<GroupAlertPreview> {
-  String initials = "";
-  final bgColor = Color.fromARGB(
-      0, Random().nextInt(255), Random().nextInt(255), Random().nextInt(255));
+  // final bgColor = Color.fromARGB(
+  //     0, Random().nextInt(255), Random().nextInt(255), Random().nextInt(255));
 
   // final  gColor = Color.fromARGB(0, 0, 0, 90);
   @override
   Widget build(BuildContext context) {
-    double height = MediaQuery.of(context).size.height;
-    double width = MediaQuery.of(context).size.width;
+    String initials = widget.groupPreview.name[0] + widget.groupPreview.name[1];
+
     return GestureDetector(
       onTap: () => Navigator.push(
           context, MaterialPageRoute(builder: (builder) => Chats())),
       child: Container(
-          height: height * 0.11,
-          padding: EdgeInsets.symmetric(horizontal: width * 0.02),
+          // height: 11.h,
+          padding: EdgeInsets.symmetric(horizontal: 2.w, vertical: .8.h),
           decoration: BoxDecoration(
-              color: Colors.grey[300],
-              borderRadius: BorderRadius.all(Radius.circular(20)),
-              boxShadow: [
-                BoxShadow(
-                  color: Colors.white,
-                  offset: const Offset(-5, -5),
-                  blurRadius: 10.0,
-                  spreadRadius: 1.0,
-                ),
-                BoxShadow(
-                  color: Colors.grey[500]!,
-                  offset: const Offset(5, 5),
-                  blurRadius: 10.0,
-                  spreadRadius: 1.0,
-                ),
-              ]),
+            color: Colors.grey[300],
+          ),
           child: Row(
             // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               Expanded(
                 flex: 1,
                 child: Stack(children: [
-                  CircleAvatar(
-                    radius: 40,
-                    backgroundColor: bgColor,
-                    foregroundImage: NetworkImage(widget.groupPreview.image),
-                    onForegroundImageError: (exception, stackTrace) {
-                      setState(() {
-                        initials = widget.groupPreview.name[0] +
-                            widget.groupPreview.name[1];
-                      });
-                    },
-                    // backgroundImage: ,
-                    child: Visibility(
-                      visible: initials.isNotEmpty,
-                      child: Text(
-                        initials.toUpperCase(),
-                        style: TextStyle(
-                            fontSize: 30,
-                            color: Colors.white,
-                            fontWeight: FontWeight.w500),
+                  Container(
+                      width: 8.w,
+                      height: 8.w,
+                      decoration: BoxDecoration(
+                          // image: DecorationImage(
+                          //   image: NetworkImage(widget.groupPreview.image),
+                          // ),
+                          color: Color(0xff6925ad),
+                          borderRadius: BorderRadius.circular(8)),
+
+                      // backgroundImage: ,
+                      child: Image(
+                        image: NetworkImage(widget.groupPreview.image),
+                        fit: BoxFit.cover,
+                        errorBuilder: (context, object, trace) => Center(
+                          child: Text(
+                            'Er' + initials.toUpperCase(),
+                            style: TextStyle(
+                                fontSize: 12,
+                                color: Colors.white,
+                                fontWeight: FontWeight.w500),
+                          ),
+                        ),
+                        loadingBuilder: (context, object, trace) => Center(
+                          child: Text(
+                            initials.toUpperCase(),
+                            style: TextStyle(
+                                fontSize: 12,
+                                color: Colors.white,
+                                fontWeight: FontWeight.w500),
+                          ),
+                        ),
+                      )
+
+                      // Visibility(
+                      //   visible: initials.isNotEmpty,
+                      //   child: Text(
+                      //     initials.toUpperCase(),
+                      //     style: TextStyle(
+                      //         fontSize: 30,
+                      //         color: Colors.white,
+                      //         fontWeight: FontWeight.w500),
+                      //   ),
+                      // ),
                       ),
-                    ),
-                  ),
                   Positioned(
                     left: 50,
                     top: 30,
@@ -230,11 +221,8 @@ class _GroupAlertPreviewState extends State<GroupAlertPreview> {
                   )
                 ]),
               ),
-              SizedBox(
-                width: width * 0.05,
-              ),
               Expanded(
-                  flex: 4,
+                  flex: 9,
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
@@ -245,8 +233,8 @@ class _GroupAlertPreviewState extends State<GroupAlertPreview> {
                             child: Text(
                               widget.groupPreview.name,
                               style: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 22,
+                                  fontWeight: FontWeight.w600,
+                                  fontSize: 15,
                                   overflow: TextOverflow.ellipsis,
                                   color: Colors.grey.shade800),
                             ),
@@ -257,17 +245,27 @@ class _GroupAlertPreviewState extends State<GroupAlertPreview> {
                                 alignment: AlignmentDirectional.centerStart,
                                 children: [
                                   Positioned(
-                                    child: CircleAvatar(
-                                      radius: 13,
-                                      backgroundColor: Colors.primaries[Random()
-                                          .nextInt(Colors.primaries.length)],
+                                    child: Container(
+                                      width: 4.w,
+                                      height: 4.w,
+                                      decoration: BoxDecoration(
+                                          color: Color(0xff6925ad),
+                                          border: Border.all(
+                                            strokeAlign: BorderSide.strokeAlignOutside,
+                                              color: const Color.fromRGBO(
+                                                  224, 224, 224, 1),
+                                              width: .8),
+                                          borderRadius: BorderRadius.circular(
+                                            2,
+                                          )),
                                       // foregroundImage: NetworkImage(
                                       //     widget.groupPreview.groupMembers.last),
 
                                       // backgroundImage: ,
                                       child: Icon(
                                         Icons.person,
-                                        size: 10,
+                                        size: 7,
+                                        color: Colors.white,
                                       ),
                                       // child: Text(
                                       //   "",
@@ -275,35 +273,60 @@ class _GroupAlertPreviewState extends State<GroupAlertPreview> {
                                     ),
                                   ),
                                   Positioned(
-                                    left: 18,
-                                    child: CircleAvatar(
-                                      radius: 13,
-                                      backgroundColor: Colors.primaries[Random()
-                                          .nextInt(Colors.primaries.length)],
+                                    left: 10,
+                                    child: Container(
+                                      width: 4.w,
+                                      height: 4.w,
+                                      decoration: BoxDecoration(
+                                          color: Color(0xff6925ad),
+                                          border: Border.all(                                            strokeAlign: BorderSide.strokeAlignOutside,
+
+                                              color: const Color.fromRGBO(
+                                                  224, 224, 224, 1),
+                                              width: .8),
+                                          borderRadius:
+                                              BorderRadius.circular(2)),
                                       // foregroundImage: NetworkImage(
-                                      //     widget.groupPreview.groupMembers.first),
+                                      //     widget.groupPreview.groupMembers.last),
+
+                                      // backgroundImage: ,
                                       child: Icon(
                                         Icons.person,
-                                        size: 10,
+                                        size: 7,
+                                        color: Colors.white,
                                       ),
                                       // child: Text(
                                       //   "",
                                       //   style: TextStyle(fontSize: 12,color: Colors.white,fontWeight: FontWeight.w500),
-                                      // ),
                                     ),
                                   ),
                                   Positioned(
-                                    left: 37,
-                                    child: CircleAvatar(
-                                      radius: 13,
-                                      backgroundColor: Colors.primaries[Random()
-                                          .nextInt(Colors.primaries.length)],
-                                      child: Text(
-                                        widget.groupPreview.group2String(),
-                                        style: TextStyle(
-                                            color: Colors.white,
-                                            fontSize: 12,
-                                            fontWeight: FontWeight.w500),
+                                    left: 22,
+                                    child: Container(
+                                      width: 4.w,
+                                      height: 4.w,
+                                      decoration: BoxDecoration(
+                                          color: Color(0xff6925ad),
+                                          border: Border.all(                                            strokeAlign: BorderSide.strokeAlignOutside,
+
+                                              color: const Color.fromRGBO(
+                                                  224, 224, 224, 1),
+                                              width: .8),
+                                          borderRadius:
+                                              BorderRadius.circular(2)),
+                                      // foregroundImage: NetworkImage(
+                                      //     widget.groupPreview.groupMembers.last),
+
+                                      // backgroundImage: ,
+
+                                      child: Center(
+                                        child: Text(
+                                          widget.groupPreview.group2String(),
+                                          style: TextStyle(
+                                              color: Colors.white,
+                                              fontSize: 6,
+                                              fontWeight: FontWeight.w500),
+                                        ),
                                       ),
                                     ),
                                   ),
@@ -315,7 +338,7 @@ class _GroupAlertPreviewState extends State<GroupAlertPreview> {
                               widget.groupPreview.time,
                               textAlign: TextAlign.right,
                               style:
-                                  TextStyle(color: Colors.grey, fontSize: 12),
+                                  TextStyle(color: Colors.grey, fontSize: 10),
                             ),
                           )
                         ],
@@ -339,10 +362,10 @@ class _GroupAlertPreviewState extends State<GroupAlertPreview> {
                                         MessageStatus.viewed
                                     ? Colors.green
                                     : Colors.grey,
-                                size: 15),
+                                size: 13),
                           ),
                           SizedBox(
-                            width: width * 0.01,
+                            width: 1.w,
                           ),
                           Text(
                             widget.groupPreview.msgPreview,
@@ -353,6 +376,7 @@ class _GroupAlertPreviewState extends State<GroupAlertPreview> {
                                             MessageStatus.unread)
                                     ? Colors.black
                                     : Colors.grey,
+                                fontSize: 12,
                                 fontWeight: FontWeight.w500,
                                 overflow: TextOverflow.ellipsis),
                           )
@@ -375,41 +399,28 @@ class CallAlertPreview extends StatefulWidget {
 }
 
 class _CallAlertPreviewState extends State<CallAlertPreview> {
-  String initials = "";
   @override
   Widget build(BuildContext context) {
-    double height = MediaQuery.of(context).size.height;
-    double width = MediaQuery.of(context).size.width;
+    String initials = widget.callPreview.image[0] + widget.callPreview.image[1];
+
     return Container(
-        height: height * 0.11,
-        padding: EdgeInsets.symmetric(horizontal: width * 0.02),
+        // height: height * 0.11,
+        padding: EdgeInsets.symmetric(horizontal: 2.w, vertical: .8.h),
         decoration: BoxDecoration(
-            color: Colors.grey[300],
-            borderRadius: BorderRadius.all(Radius.circular(20)),
-            boxShadow: [
-              BoxShadow(
-                color: Colors.white,
-                offset: const Offset(-5, -5),
-                blurRadius: 10.0,
-                spreadRadius: 1.0,
-              ),
-              BoxShadow(
-                color: Colors.grey[500]!,
-                offset: const Offset(5, 5),
-                blurRadius: 10.0,
-                spreadRadius: 1.0,
-              ),
-            ]),
+          color: Colors.grey[300],
+        ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Expanded(
-              flex: 2,
+              flex: 1,
               child: Stack(children: [
-                CircleAvatar(
-                  radius: 35,
-                  backgroundColor: Colors
-                      .primaries[Random().nextInt(Colors.primaries.length)],
+                Container(
+                  width: 8.w,
+                  height: 8.w,
+                  decoration: BoxDecoration(
+                      color: Color(0xff6925ad),
+                      borderRadius: BorderRadius.circular(8)),
 
                   // foregroundImage: NetworkImage(widget.callPreview.image),
                   // onForegroundImageError: (exception, stackTrace) {
@@ -419,12 +430,11 @@ class _CallAlertPreviewState extends State<CallAlertPreview> {
                   //   });
                   // },
                   // backgroundImage: ,
-                  child: Visibility(
-                    visible: initials.isNotEmpty,
+                  child: Center(
                     child: Text(
                       initials.toUpperCase(),
                       style: TextStyle(
-                          fontSize: 30,
+                          fontSize: 12,
                           color: Colors.white,
                           fontWeight: FontWeight.w500),
                     ),
@@ -446,11 +456,10 @@ class _CallAlertPreviewState extends State<CallAlertPreview> {
                 )
               ]),
             ),
-            SizedBox(
-              width: width * 0.05,
-            ),
+            SizedBox(width: 2.w),
+
             Expanded(
-                flex: 6,
+                flex: 9,
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -461,8 +470,8 @@ class _CallAlertPreviewState extends State<CallAlertPreview> {
                             widget.callPreview.name,
                             textAlign: TextAlign.left,
                             style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                                fontSize: 25,
+                                fontWeight: FontWeight.w600,
+                                fontSize: 15,
                                 overflow: TextOverflow.ellipsis,
                                 color: Colors.grey.shade800),
                           ),
@@ -483,13 +492,15 @@ class _CallAlertPreviewState extends State<CallAlertPreview> {
                               : widget.callPreview.callStatus == CallStatus.call
                                   ? Colors.green
                                   : Colors.red,
+                          size: 10,
                         ),
                         SizedBox(
-                          width: width * 0.01,
+                          width: 1.w,
                         ),
                         Text(
                           widget.callPreview.time,
                           style: TextStyle(
+                              fontSize: 12,
                               color: Colors.grey,
                               overflow: TextOverflow.ellipsis),
                         )
@@ -498,7 +509,7 @@ class _CallAlertPreviewState extends State<CallAlertPreview> {
                   ],
                 )),
             // SizedBox(
-            //   width: width * 0.01,
+            //   width: 1.w,
             // ),
             Expanded(
                 flex: 2,
@@ -507,7 +518,7 @@ class _CallAlertPreviewState extends State<CallAlertPreview> {
                       ? Icons.phone
                       : Icons.videocam,
                   color: Colors.grey,
-                  size: 30,
+                  size: 15,
                 ))
           ],
         ));

@@ -1,6 +1,7 @@
 // ignore_for_file: file_names, prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
+import 'package:sizer/sizer.dart';
 
 class ReceipientBubble extends StatefulWidget {
   const ReceipientBubble({Key? key}) : super(key: key);
@@ -142,17 +143,17 @@ class GroupReceipient extends StatefulWidget {
 class _GroupReceipientState extends State<GroupReceipient> {
   @override
   Widget build(BuildContext context) {
-    double width = MediaQuery.of(context).size.width;
-
     return Flexible(
       // height: height * 0.1859 ,
       // alignment: Alignment.topLeft,
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          CircleAvatar(
-            radius: 25,
-            backgroundColor: Color(0xffad6925),
+          Container(
+            width: 8.w,
+            height: 8.w,
+            decoration: BoxDecoration(
+                color: Colors.white, borderRadius: BorderRadius.circular(8)),
             child: Icon(
               Icons.person,
               color: Color(0xffffffff),
@@ -166,7 +167,7 @@ class _GroupReceipientState extends State<GroupReceipient> {
                 Container(
                   // alignment: Alignment.topLeft,
                   // height: height * 0.1,
-                  width: width * 0.75,
+                  width: 75.w,
 
                   padding: EdgeInsets.only(
                     bottom: 15,
@@ -176,12 +177,12 @@ class _GroupReceipientState extends State<GroupReceipient> {
                   ),
                   margin: EdgeInsets.only(bottom: 5),
                   decoration: BoxDecoration(
-                    color: Colors.grey[400],
+                    color: Colors.grey[300],
                     border: Border.all(color: Colors.transparent),
                     borderRadius: BorderRadius.only(
-                        topRight: Radius.circular(50),
-                        bottomLeft: Radius.circular(50),
-                        bottomRight: Radius.circular(50)),
+                        topRight: Radius.circular(15),
+                        bottomLeft: Radius.circular(15),
+                        bottomRight: Radius.circular(15)),
                   ),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -191,7 +192,7 @@ class _GroupReceipientState extends State<GroupReceipient> {
                         child: Text(
                           "Agartha Harkness",
                           style: TextStyle(
-                              fontWeight: FontWeight.bold, fontSize: 18),
+                              fontWeight: FontWeight.w600, fontSize: 14),
                           maxLines: 1,
                         ),
                       ),
@@ -200,9 +201,9 @@ class _GroupReceipientState extends State<GroupReceipient> {
                             text:
                                 "his property takes FlexFit value as a parameter. It decides how a Flexible child widget will fill the space available to it. A child widget can choose to take the maximum area with FlexFit.tight value or it can choose a minimum area with FlexFit.loose value. Or it can be assigned FlexFit.valuesddddddddddddddddddddddddddddddddd",
                             style: TextStyle(
-                                fontSize: 18,
-                                color: Colors.black87,
-                                fontWeight: FontWeight.w400)),
+                              fontSize: 11,
+                              color: Colors.black87,
+                            )),
                         maxLines: 5,
                         overflow: TextOverflow.ellipsis,
                       ),
@@ -215,7 +216,7 @@ class _GroupReceipientState extends State<GroupReceipient> {
                   "02-04-2020 08:43 PM",
                   style: TextStyle(
                       color: Colors.grey[400],
-                      fontSize: 15,
+                      fontSize: 9,
                       fontWeight: FontWeight.w500),
                   textAlign: TextAlign.left,
                 )

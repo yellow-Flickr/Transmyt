@@ -23,57 +23,84 @@ class _DashboardState extends State<Dashboard> {
   @override
   Widget build(BuildContext context) {
     // double width = MediaQuery.of(context).size.width;
-    double height = MediaQuery.of(context).size.height;
     return DefaultTabController(
-      initialIndex: 1,
       length: 4,
       child: Scaffold(
-        backgroundColor: Colors.grey[300],
+        backgroundColor: Colors.grey[350],
         appBar: AppBar(
           backgroundColor: Color(0xff6925ad),
           leadingWidth: 80,
           // toolbarHeight: height * 0.1,
           elevation: 0,
-          leading: Padding(
-            padding: EdgeInsets.only(left: 4.w),
-            child: Row(
-              children: [
-                CircleAvatar(
-                  radius: 20,
-                  backgroundColor: Color(0xffad6925),
-                  child: Icon(
-                    Icons.person,
-                    color: Color(0xffffffff),
-                  ),
-                ),
-              ],
-            ),
-          ),
+          // leading: Padding(
+          //   padding: EdgeInsets.only(left: 4.w),
+          //   child: Row(
+          //     children: [
+          //      Container(
+          //       width: 10.w,
+          //       height:10.w,
+          //       decoration: BoxDecoration(
+          //           color: Colors.white,
+
+          //           borderRadius: BorderRadius.circular(10)),
+
+          //       child: Icon(
+          //         Icons.person_rounded,
+          //         color: Color(0xff6925ad),
+          //         size: 30,
+          //       ),
+          //     ),
+          //     Text.rich(TextSpan(
+          //     text: "Hi, Jessica",
+          //     style: TextStyle(
+          //         color: Color(0xffffffff),
+          //         fontSize: 15,
+          //         fontWeight: FontWeight.bold)))
+          //     ],
+          //   ),
+          // ),
           centerTitle: false,
-          titleSpacing: 0.0,
-          title: Text.rich(TextSpan(
-              text: "Hi, Jessica",
-              style: TextStyle(
-                  color: Color(0xffffffff),
-                  fontSize: 17,
-                  fontWeight: FontWeight.bold))),
+          // titleSpacing: 0.0,
+          title: Row(
+            textBaseline: TextBaseline.alphabetic,
+            children: [
+              Container(
+                width: 8.w,
+                height: 8.w,
+                decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(8)),
+                child: Icon(
+                  Icons.person_rounded,
+                  color: Color(0xff6925ad),
+                  size: 15,
+                ),
+              ),
+              SizedBox(width: 1.w,),
+              Text("Hi, Jessica",
+                  style: TextStyle(
+                      color: Color(0xffffffff),
+                      fontSize: 15,
+                      fontWeight: FontWeight.bold))
+            ],
+          ),
           actions: [
             Icon(
               Icons.search,
-              size: 25,
+              size: 15,
               color: Color(0xffffffff),
             ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 8.0),
               child: Icon(
                 Icons.pending,
-                size: 25,
+                size: 15,
                 color: Color(0xffffffff),
               ),
             ),
           ],
           bottom: PreferredSize(
-            preferredSize: Size.fromHeight(5.h),
+            preferredSize: Size.fromHeight(4.h),
             child: TabBar(
               // padding: EdgeInsets.only(right: 50),
               indicatorWeight: 5,
@@ -81,31 +108,31 @@ class _DashboardState extends State<Dashboard> {
               labelColor: Colors.white,
               unselectedLabelColor: Colors.white60,
               indicatorPadding:
-                  EdgeInsets.symmetric(horizontal: 5, vertical: 5),
-              labelPadding: EdgeInsets.symmetric(horizontal: 5.0),
+                  EdgeInsets.symmetric(horizontal: 5,  ),
+              // labelPadding: EdgeInsets.symmetric(horizontal: 5.0),
               tabs: [
                 Tab(
                   child: Text("Chats",
                       style: TextStyle(
-                        fontSize: 15,
+                        fontSize: 13,
                       )),
                 ),
                 Tab(
                   child: Text("Group",
                       style: TextStyle(
-                        fontSize: 15,
+                        fontSize: 13,
                       )),
                 ),
                 Tab(
                   child: Text("Status",
                       style: TextStyle(
-                        fontSize: 15,
+                        fontSize: 13,
                       )),
                 ),
                 Tab(
                   child: Text("Call",
                       style: TextStyle(
-                        fontSize: 15,
+                        fontSize: 13,
                       )),
                 ),
               ],
