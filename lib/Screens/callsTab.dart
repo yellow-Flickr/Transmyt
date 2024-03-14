@@ -4,33 +4,32 @@ import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 import 'package:transmyt/Components/AlertPreviewTypes.dart';
 import 'package:transmyt/Models/ChatPreview.dart';
-import 'package:transmyt/Screens/Contacts.dart';
+import 'package:transmyt/screens/CallContacts.dart';
 
-class ChatTab extends StatefulWidget {
-  const ChatTab({Key? key}) : super(key: key);
+class CallsTab extends StatefulWidget {
+  const CallsTab({Key? key}) : super(key: key);
 
   @override
-  _ChatTabState createState() => _ChatTabState();
+  _CallsTabState createState() => _CallsTabState();
 }
 
-class _ChatTabState extends State<ChatTab> {
+class _CallsTabState extends State<CallsTab> {
   @override
   Widget build(BuildContext context) {
-    
     return Scaffold(
       backgroundColor: Colors.transparent,
       floatingActionButtonLocation: FloatingActionButtonLocation.endDocked,
       floatingActionButton: GestureDetector(
         onTap: () {
           Navigator.push(
-              context, MaterialPageRoute(builder: (context) => Contacts()));
+              context, MaterialPageRoute(builder: (context) => CallContacts()));
         },
         child: Container(
           margin: EdgeInsets.only(bottom: 2.h),
-          height:12.w,
+          height: 12.w,
           width: 12.w,
           child: Icon(
-            Icons.send_sharp,
+            Icons.add_ic_call,
             color: Colors.white,
             size: 15,
           ),
@@ -38,20 +37,21 @@ class _ChatTabState extends State<ChatTab> {
               BoxDecoration(shape: BoxShape.circle, color: Color(0xff6925ad)),
         ),
       ),
-        body: ListView.separated(
-            padding: EdgeInsets.only(
-                top: 2.h, /* left:4.w, right: 4.w */),
+      body: ListView.separated(
+          padding: EdgeInsets.only(
+            top: 2.h,
+          ),
           separatorBuilder: (context, index) {
             return SizedBox(
-              height: .7.h,
+              height: .7.w,
             );
           },
 
           // padding: EdgeInsets.symmetric(vertical: ),
-          itemCount: chatPreviewsDemo.length,
+          itemCount: callPreviewsDemo.length,
           itemBuilder: (context, index) {
-            return ChatAlertPreview(
-              chatPreview: chatPreviewsDemo[index],
+            return CallAlertPreview(
+              callPreview: callPreviewsDemo[index],
             );
           }),
     );

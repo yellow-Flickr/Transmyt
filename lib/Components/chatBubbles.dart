@@ -13,7 +13,6 @@ class ReceipientBubble extends StatefulWidget {
 class _ReceipientBubbleState extends State<ReceipientBubble> {
   @override
   Widget build(BuildContext context) {
-    double width = MediaQuery.of(context).size.width;
     return Flexible(
       // height: height * 0.1859 ,
       // alignment: Alignment.topLeft,
@@ -21,28 +20,30 @@ class _ReceipientBubbleState extends State<ReceipientBubble> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Container(
-            // alignment: Alignment.topLeft,
-            // height: height * 0.1,
-            width: width * 0.85,
-
-            padding: EdgeInsets.all(15),
+            width: 75.w,
+            padding: EdgeInsets.only(
+              bottom: 15,
+              left: 15,
+              right: 15,
+              top: 5,
+            ),
             margin: EdgeInsets.only(bottom: 5),
             decoration: BoxDecoration(
-              color: Colors.grey[400],
+              color: Colors.grey[300],
               border: Border.all(color: Colors.transparent),
               borderRadius: BorderRadius.only(
-                  topRight: Radius.circular(120),
-                  bottomLeft: Radius.circular(100),
-                  bottomRight: Radius.circular(120)),
+                  topRight: Radius.circular(15),
+                  bottomLeft: Radius.circular(15),
+                  bottomRight: Radius.circular(15)),
             ),
             child: Text.rich(
               TextSpan(
                   text:
                       "his property takes FlexFit value as a parameter. It decides how a Flexible child widget will fill the space available to it. A child widget can choose to take the maximum area with FlexFit.tight value or it can choose a minimum area with FlexFit.loose value. Or it can be assigned FlexFit.valuesddddddddddddddddddddddddddddddddd",
                   style: TextStyle(
-                      fontSize: 18,
-                      color: Colors.black87,
-                      fontWeight: FontWeight.w400)),
+                    fontSize: 11,
+                    color: Colors.black87,
+                  )),
               maxLines: 5,
               overflow: TextOverflow.ellipsis,
             ),
@@ -53,7 +54,7 @@ class _ReceipientBubbleState extends State<ReceipientBubble> {
             "02-04-2020 08:43 PM",
             style: TextStyle(
                 color: Colors.grey[400],
-                fontSize: 15,
+                fontSize: 9,
                 fontWeight: FontWeight.w500),
             textAlign: TextAlign.left,
           )
@@ -85,25 +86,24 @@ class _SenderBubbleState extends State<SenderBubble> {
           Container(
             // alignment: Alignment.topLeft,
             // height: height * 0.1,
-            width: width * 0.8,
-
+            width: 75.w,
             padding: EdgeInsets.all(10),
             margin: EdgeInsets.only(bottom: 5),
             decoration: BoxDecoration(
               color: Color(0xff6925ad),
               border: Border.all(color: Colors.transparent),
               borderRadius: BorderRadius.only(
-                  topRight: Radius.circular(100),
-                  bottomLeft: Radius.circular(120),
-                  topLeft: Radius.circular(120)),
+                  topRight: Radius.circular(15),
+                  topLeft: Radius.circular(15),
+                  bottomLeft: Radius.circular(15)),
             ),
             child: Text.rich(
               TextSpan(
                   text: "dddddddddddddddddddddddddddddddddddddd",
                   style: TextStyle(
-                      fontSize: 18,
-                      color: Colors.white,
-                      fontWeight: FontWeight.w400)),
+                    fontSize: 11,
+                    color: Colors.white,
+                  )),
               maxLines: 5,
               overflow: TextOverflow.ellipsis,
             ),
@@ -117,12 +117,12 @@ class _SenderBubbleState extends State<SenderBubble> {
                 "02-04-2020 08:43 PM",
                 style: TextStyle(
                     color: Colors.grey[400],
-                    fontSize: 15,
+                    fontSize: 9,
                     fontWeight: FontWeight.w500),
                 textAlign: TextAlign.left,
               ),
               SizedBox(
-                width: width * 0.02,
+                width: 2.w,
               ),
               Icon(Icons.done),
             ],
@@ -156,7 +156,7 @@ class _GroupReceipientState extends State<GroupReceipient> {
                 color: Colors.white, borderRadius: BorderRadius.circular(8)),
             child: Icon(
               Icons.person,
-              color: Color(0xffffffff),
+              color: Color(0xff6925ad),
             ),
           ),
           Padding(
@@ -168,7 +168,6 @@ class _GroupReceipientState extends State<GroupReceipient> {
                   // alignment: Alignment.topLeft,
                   // height: height * 0.1,
                   width: 75.w,
-
                   padding: EdgeInsets.only(
                     bottom: 15,
                     left: 15,

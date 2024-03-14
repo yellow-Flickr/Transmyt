@@ -5,12 +5,12 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 import 'package:transmyt/Models/ChatPreview.dart';
-import 'package:transmyt/Screens/Chats.dart';
+import 'package:transmyt/screens/Chats.dart';
 
 class ChatAlertPreview extends StatefulWidget {
-  ChatPreview chatPreview;
+ final ChatPreview chatPreview;
 
-  ChatAlertPreview({Key? key, required this.chatPreview}) : super(key: key);
+  const ChatAlertPreview({super.key, required this.chatPreview});
 
   @override
   _ChatAlertPreviewState createState() => _ChatAlertPreviewState();
@@ -23,15 +23,12 @@ class _ChatAlertPreviewState extends State<ChatAlertPreview> {
       onTap: () => Navigator.push(
           context, MaterialPageRoute(builder: (builder) => Chats())),
       child: Container(
-          // height: height * 0.11,
-          padding: EdgeInsets.symmetric(horizontal: 2.w, vertical: .8.h),
+           padding: EdgeInsets.symmetric(horizontal: 2.w, vertical: .8.h),
           decoration: BoxDecoration(
             color: Colors.grey[300],
-            // borderRadius: BorderRadius.all(Radius.circular(8)),
-          ),
+           ),
           child: Row(
-            // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
+             children: [
               Container(
                 width: 8.w,
                 height: 8.w,
@@ -125,12 +122,12 @@ class _ChatAlertPreviewState extends State<ChatAlertPreview> {
 }
 
 class GroupAlertPreview extends StatefulWidget {
-  GroupPreview groupPreview;
+ final GroupPreview groupPreview;
 
-  GroupAlertPreview({
-    Key? key,
+ const GroupAlertPreview({
+    super.key,
     required this.groupPreview,
-  }) : super(key: key);
+  });
   @override
   _GroupAlertPreviewState createState() => _GroupAlertPreviewState();
 }
@@ -393,7 +390,7 @@ class _GroupAlertPreviewState extends State<GroupAlertPreview> {
 class CallAlertPreview extends StatefulWidget {
   CallPreview callPreview;
 
-  CallAlertPreview({Key? key, required this.callPreview}) : super(key: key);
+  CallAlertPreview({super.key, required this.callPreview});
   @override
   _CallAlertPreviewState createState() => _CallAlertPreviewState();
 }

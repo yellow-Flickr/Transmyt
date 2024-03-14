@@ -7,7 +7,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:transmyt/Screens/dashboard.dart';
+import 'package:transmyt/screens/dashboard.dart';
 
 class Launcher extends StatefulWidget {
   const Launcher({Key? key}) : super(key: key);

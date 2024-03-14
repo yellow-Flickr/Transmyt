@@ -2,10 +2,10 @@
 
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
-import 'package:transmyt/Screens/Calls_Tab.dart';
-import 'package:transmyt/Screens/Chat_Tab.dart';
-import 'package:transmyt/Screens/Group_Tab.dart';
-import 'package:transmyt/Screens/Status_Tab.dart';
+import 'package:transmyt/screens/callsTab.dart';
+
+import 'package:transmyt/screens/chatTab.dart';
+import 'package:transmyt/screens/groupTab.dart';
 
 class Dashboard extends StatefulWidget {
   const Dashboard({Key? key}) : super(key: key);
@@ -22,45 +22,11 @@ class _DashboardState extends State<Dashboard> {
 
   @override
   Widget build(BuildContext context) {
-    // double width = MediaQuery.of(context).size.width;
     return DefaultTabController(
-      length: 4,
+      length: 3,
       child: Scaffold(
-        backgroundColor: Colors.grey[350],
         appBar: AppBar(
-          backgroundColor: Color(0xff6925ad),
           leadingWidth: 80,
-          // toolbarHeight: height * 0.1,
-          elevation: 0,
-          // leading: Padding(
-          //   padding: EdgeInsets.only(left: 4.w),
-          //   child: Row(
-          //     children: [
-          //      Container(
-          //       width: 10.w,
-          //       height:10.w,
-          //       decoration: BoxDecoration(
-          //           color: Colors.white,
-
-          //           borderRadius: BorderRadius.circular(10)),
-
-          //       child: Icon(
-          //         Icons.person_rounded,
-          //         color: Color(0xff6925ad),
-          //         size: 30,
-          //       ),
-          //     ),
-          //     Text.rich(TextSpan(
-          //     text: "Hi, Jessica",
-          //     style: TextStyle(
-          //         color: Color(0xffffffff),
-          //         fontSize: 15,
-          //         fontWeight: FontWeight.bold)))
-          //     ],
-          //   ),
-          // ),
-          centerTitle: false,
-          // titleSpacing: 0.0,
           title: Row(
             textBaseline: TextBaseline.alphabetic,
             children: [
@@ -76,7 +42,9 @@ class _DashboardState extends State<Dashboard> {
                   size: 15,
                 ),
               ),
-              SizedBox(width: 1.w,),
+              SizedBox(
+                width: 1.w,
+              ),
               Text("Hi, Jessica",
                   style: TextStyle(
                       color: Color(0xffffffff),
@@ -87,61 +55,43 @@ class _DashboardState extends State<Dashboard> {
           actions: [
             Icon(
               Icons.search,
-              size: 15,
-              color: Color(0xffffffff),
             ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 8.0),
               child: Icon(
                 Icons.pending,
-                size: 15,
-                color: Color(0xffffffff),
               ),
             ),
           ],
           bottom: PreferredSize(
-            preferredSize: Size.fromHeight(4.h),
+            preferredSize: Size.fromHeight(2.h),
             child: TabBar(
-              // padding: EdgeInsets.only(right: 50),
               indicatorWeight: 5,
               indicatorSize: TabBarIndicatorSize.label,
-              labelColor: Colors.white,
-              unselectedLabelColor: Colors.white60,
-              indicatorPadding:
-                  EdgeInsets.symmetric(horizontal: 5,  ),
-              // labelPadding: EdgeInsets.symmetric(horizontal: 5.0),
+              indicatorPadding: EdgeInsets.symmetric(
+                horizontal: 5,
+              ),
               tabs: [
                 Tab(
-                  child: Text("Chats",
-                      style: TextStyle(
-                        fontSize: 13,
-                      )),
+                  child: Text(
+                    "Chats",
+                  ),
                 ),
                 Tab(
-                  child: Text("Group",
-                      style: TextStyle(
-                        fontSize: 13,
-                      )),
+                  child: Text(
+                    "Group",
+                  ),
                 ),
                 Tab(
-                  child: Text("Status",
-                      style: TextStyle(
-                        fontSize: 13,
-                      )),
-                ),
-                Tab(
-                  child: Text("Call",
-                      style: TextStyle(
-                        fontSize: 13,
-                      )),
+                  child: Text(
+                    "Call",
+                  ),
                 ),
               ],
-              indicatorColor: Colors.white,
             ),
           ),
         ),
-        body: TabBarView(
-            children: [ChatTab(), GroupTab(), StatusTab(), CallsTab()]),
+        body: TabBarView(children: [ChatTab(), GroupTab(), CallsTab()]),
       ),
     );
   }
